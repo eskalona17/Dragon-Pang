@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+#canvas {
+  border: 1px solid black;
+  background-image: url("../img/pantalla_3.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat; 
+}
+
+body{
+  background-image: url("../img/dragon-ball-z-bg.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  padding: 50px 0 10px 10px;
+  width: 100%;
+  text-align: center;
+  font-family: 'press start 2p';
+  color: yellow;
+  text-shadow: 7px 7px 8px black;
+}
+
+span{
+  font-size: 35px;
+  text-shadow: 10px 10px 10px black;
+}
+
+header h2{
+  padding: 20px 0 10px 10px;
+}
+
+.header-remove{
+  display: none;
+}
+
+/* #credits{
+  display: none;
+} */
+
+.guardar{
+  display: none;
+}
+
+h2 {
+  color: yellow !important;
+}
+
+.parpadea {
+  animation-name: parpadeo;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name:parpadeo;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-moz-keyframes parpadeo{
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes parpadeo {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@keyframes parpadeo {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
