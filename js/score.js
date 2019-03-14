@@ -15,7 +15,7 @@ function Score(game, type) {
 Score.prototype.draw = function() {
   if(this.type==1){
       this.game.ctx.font = "30px 'Press Start 2P'";
-      this.game.ctx.fillStyle = "yellow";
+      this.game.ctx.fillStyle = "orange";
       this.game.ctx.fillText(
         "Score:" + Math.floor(this.points),
         this.game.canvas.width * 0.05,
@@ -26,7 +26,7 @@ Score.prototype.draw = function() {
   if(this.type==2){
 
       this.game.ctx.font = "30px 'Press Start 2P'";
-      this.game.ctx.fillStyle = "yellow";
+      this.game.ctx.fillStyle = "blue";
       this.game.ctx.fillText(
         "Score:" + Math.floor(this.points),
         this.game.canvas.width * 0.75,
