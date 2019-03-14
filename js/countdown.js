@@ -10,9 +10,7 @@ function Countdown(game) {
   
   Countdown.prototype.onTimer = function(){
     this.i--;
-    // if(this.i < 5 && this.i<0){
-    //   this.game.ctx.fillStyle = "red";
-    // }
+
     if (this.i < 0) {
       this.game.gameOver();
     }
@@ -32,3 +30,4 @@ function Countdown(game) {
     );
     this.game.ctx.textBaseline = "top";
   };
+
