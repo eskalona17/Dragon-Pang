@@ -86,14 +86,17 @@ Player.prototype.setListeners = function() {
       } else this.img.frameIndex = 5;
     }
 
+    if(event.keyCode === 49){
+      event.preventDefault();
+    }
+
     if (event.keyCode === this.SPACE) {
       hit.play();
       if(!pressed){
       this.shoot();
       pressed = true;
-    }    
-    }
-    
+      }    
+    } 
   }
   
   if(this.type==2){
