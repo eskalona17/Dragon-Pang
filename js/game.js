@@ -4,8 +4,6 @@ function Game(canvasId, numberOfPlayers) {
   // this.paco = document.getElementById('credits');
   this.numberOfPlayers = numberOfPlayers;
 
-  // this.audio = new Audio("sounds/game.mp3");
-
   this.player = new Player(this, 1);
   this.balls = [
     new Ball(this, 55, 500, 70, 1), 
@@ -30,7 +28,7 @@ function Game(canvasId, numberOfPlayers) {
 //-------------GAME START----------------
 
 Game.prototype.start = function () {
-  // this.audio.play();
+  battle_sound.play();
   this.intervalId = setInterval(
     function () {
       this.clear();
@@ -130,9 +128,9 @@ if(this.numberOfPlayers==2){
 };
 
 
-// Game.prototype.stop = function() {
-//   clearInterval(this.interval);
-// };
+Game.prototype.stop = function() {
+  clearInterval(this.intervalId);
+};
 
 //--------------GAME OVER----------------------
 
@@ -146,6 +144,12 @@ Game.prototype.gameOver = function () {
   this.ctx.fillText("Press P to play again!", canvas.width * 0.15, canvas.height * 0.50);
   this.ctx.textBaseline = "top";
   clearInterval(this.intervalId);
+  clearInterval(this.countInterval);
+  document.onkeydown = function (event) {
+  if (event.keyCode === 80) {
+    location.reload();
+      }
+    };
   // var paco = this.game.score.points;
   // document.getElementById("credits").style.visibility = 'inherit';
 
@@ -176,6 +180,106 @@ Game.prototype.gameOver = function () {
   //   }
   // };
 };
+
+
+Game.prototype.gameOver1 = function () {
+
+  this.ctx.font = "70px 'Press Start 2P'";
+  this.ctx.fillStyle = "red";
+  this.ctx.fillText("GAME OVER!", canvas.width * 0.20, canvas.height * 0.25);
+  this.ctx.font = "50px 'Press Start 2P'";
+  this.ctx.fillStyle = "orange";
+  this.ctx.fillText("Player One wins!", canvas.width * 0.20, canvas.height * 0.50);
+  this.ctx.font = "40px 'Press Start 2P'";
+  this.ctx.fillStyle = "yellow";
+  this.ctx.fillText("Press P to play again!", canvas.width * 0.15, canvas.height * 0.75);
+  this.ctx.textBaseline = "top";
+  clearInterval(this.intervalId);
+  document.onkeydown = function (event) {
+  if (event.keyCode === 80) {
+    location.reload();
+      }
+    };
+  // var paco = this.game.score.points;
+  // document.getElementById("credits").style.visibility = 'inherit';
+
+  // this.guardar.classList.remove("guardar");
+
+  // clearInterval(this.countInterval);
+  // this.stop();
+
+  // if(confirm("GAME OVER. Play again?")) {
+  //   this.start();
+  // }
+
+  // document.onkeydown = function (event) {
+
+  //   if (event.keyCode === 80) {
+
+  //     /*Captura de datos escrito en los inputs*/
+  //     this.name = document.getElementById("name").value;
+  //     /*Guardando los datos en el LocalStorage*/
+  //     debugger
+  //     localStorage.setItem("name", this.name);
+  //     localStorage.setItem("score: ", this.game.score.points);
+  //     /*Limpiando los campos o inputs*/
+  //     // document.getElementById("name").value = "";
+  //     // document.getElementById("score").value = "";
+
+  //     location.reload();
+  //   }
+  // };
+};
+
+Game.prototype.gameOver2 = function () {
+
+  this.ctx.font = "70px 'Press Start 2P'";
+  this.ctx.fillStyle = "red";
+  this.ctx.fillText("GAME OVER!", canvas.width * 0.20, canvas.height * 0.25);
+  this.ctx.font = "50px 'Press Start 2P'";
+  this.ctx.fillStyle = "blue";
+  this.ctx.fillText("Player two wins!", canvas.width * 0.20, canvas.height * 0.50);
+  this.ctx.font = "40px 'Press Start 2P'";
+  this.ctx.fillStyle = "yellow";
+  this.ctx.fillText("Press P to play again!", canvas.width * 0.15, canvas.height * 0.75);
+  this.ctx.textBaseline = "top";
+  clearInterval(this.intervalId);
+  document.onkeydown = function (event) {
+  if (event.keyCode === 80) {
+    location.reload();
+      }
+    };
+  // var paco = this.game.score.points;
+  // document.getElementById("credits").style.visibility = 'inherit';
+
+  // this.guardar.classList.remove("guardar");
+
+  // clearInterval(this.countInterval);
+  // this.stop();
+
+  // if(confirm("GAME OVER. Play again?")) {
+  //   this.start();
+  // }
+
+  // document.onkeydown = function (event) {
+
+  //   if (event.keyCode === 80) {
+
+  //     /*Captura de datos escrito en los inputs*/
+  //     this.name = document.getElementById("name").value;
+  //     /*Guardando los datos en el LocalStorage*/
+  //     debugger
+  //     localStorage.setItem("name", this.name);
+  //     localStorage.setItem("score: ", this.game.score.points);
+  //     /*Limpiando los campos o inputs*/
+  //     // document.getElementById("name").value = "";
+  //     // document.getElementById("score").value = "";
+
+  //     location.reload();
+  //   }
+  // };
+};
+
 
 // ---------------- RESET ----------------
 // Game.prototype.reset = function() {

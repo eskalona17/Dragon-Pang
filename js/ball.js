@@ -29,7 +29,7 @@ Ball.prototype.draw = function() {
 //-----------BALL COLLIDESWITHPLAYER---------------
 
 Ball.prototype.collidesWithPlayer = function(ball, player, player2) {
-  // if(this.type==1){
+  if(this.type==1){
   
   if (
     player.x < ball.x - 40 + ball.r &&
@@ -37,27 +37,69 @@ Ball.prototype.collidesWithPlayer = function(ball, player, player2) {
     player.y < ball.y - 50 + ball.r &&
     player.y  + player.h > ball.y - 50
   ) {
+    finishgame.play();
     this.game.gameOver();
-    if(this.game.score.points>this.game.score2.points){
-      alert('player one wins');
-    }else {
-      alert('player two wins');
-    }
+    battle_sound.pause();
+    gameovervoice.play();
+    // if(this.game.score.points>this.game.score2.points){
+    //   alert('player one wins');
+    // }else {
+    //   alert('player two wins');
+    // }
     // guardar.classList.remove("guardar");
   }
-// }
+}
 if(this.type==2){
+
+  if (
+    player.x < ball.x - 40 + ball.r &&
+    player.x + player.w > ball.x - 40 &&
+    player.y < ball.y - 50 + ball.r &&
+    player.y  + player.h > ball.y - 50
+  ) {
+    this.game.stop();
+    if(this.game.score.points>this.game.score2.points){
+      finishgame.play();
+      this.game.gameOver1();
+      battle_sound.pause();
+      gameovervoice.play();
+    }else if (this.game.score.points == this.game.score2.points){
+      finishgame.play();
+      battle_sound.pause();
+      gameovervoice.play();
+      this.game.gameOver();
+    }else {
+      finishgame.play();
+      this.game.gameOver2();
+      battle_sound.pause();
+      gameovervoice.play();
+    }
+  }
+
+
   if (
     player2.x < ball.x - 40 + ball.r &&
     player2.x + player2.w > ball.x - 40 &&
     player2.y < ball.y - 50 + ball.r &&
     player2.y  + player2.h > ball.y - 50
   ) {
-    this.game.gameOver();
+    this.game.stop();
+
     if(this.game.score.points>this.game.score2.points){
-      alert('player one wins');
+      finishgame.play();
+      this.game.gameOver1();
+      battle_sound.pause();
+      gameovervoice.play();
+    }else if (this.game.score.points == this.game.score2.points){
+      finishgame.play();
+      battle_sound.pause();
+      gameovervoice.play();
+      this.game.gameOver();
     }else {
-      alert('player two wins');
+      finishgame.play();
+      this.game.gameOver2();
+      battle_sound.pause();
+      gameovervoice.play();
     }
 
     // guardar.classList.remove("guardar");
@@ -200,7 +242,7 @@ if(this.type==2){
 //-----------BALL MOVEALONE---------------
 
 Ball.prototype.moveAlone = function() {
-  //poner a 500
+
   if (this.y <= 500) {
     this.vy += this.gravity;
     this.y += this.vy;

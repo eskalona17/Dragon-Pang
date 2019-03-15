@@ -4,21 +4,22 @@ function Bullet(game, x, y , type) {
   this.y = y;
   this.type = type;
 
+  this.img = new Image();
   if(this.type==1){
   this.x = this.game.player.x;
   this.y = this.game.player.y;
+  this.img.src = "img/ballspider2.png";
 }
   if(this.type==2){
     this.x = this.game.player2.x;
     this.y = this.game.player2.y;
+    this.img.src = "img/purple-ball3.png";
   }
   // this.y = 500;
 
   this.vy = 20;
-  this.img = new Image();
-  this.img.src = "img/ballspider.png";
-  this.w = 70;
-  this.h = 90;
+  this.w = 40;
+  this.h = 60;  
 }
 
 //-------------BULLET DRAW----------------

@@ -66,7 +66,6 @@ if(this.type==2){
 };
 
 //-------------PLAYER SETLISTENERS----------------
-
 var pressed = false;
 
 Player.prototype.setListeners = function() {
@@ -84,10 +83,6 @@ Player.prototype.setListeners = function() {
       if (this.img.frameIndex > 0) {
         this.img.frameIndex--;
       } else this.img.frameIndex = 5;
-    }
-
-    if(event.keyCode === 49){
-      event.preventDefault();
     }
 
     if (event.keyCode === this.SPACE) {
@@ -123,6 +118,7 @@ Player.prototype.setListeners = function() {
     }
   }
 }.bind(this));
+
 document.addEventListener("keyup", function(){
       pressed = false
     if(this.type==1){
