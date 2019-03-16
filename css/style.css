@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 
 #canvas {
-  margin-top: 100px;
   border: 1px solid black;
   background-image: url("../img/pantalla_3.png");
   background-size: 100% 100%;
@@ -20,7 +19,7 @@ body{
 header {
   position: fixed;
   left: 0;
-  top: 100px;
+  top: 0;
   z-index: 1;
   padding: 50px 0 10px 10px;
   width: 100%;
@@ -36,7 +35,7 @@ span{
 }
 
 header h2{
-  padding: 400px 0 10px 10px;
+  padding: 100px 0 10px 10px;
 }
 
 .header-remove{
